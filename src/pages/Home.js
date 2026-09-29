@@ -291,6 +291,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* LEO CLUB OFFERS */}
+      <section className="offers-teaser-section">
+        <div className="container offers-teaser">
+          <p className="badge offers-teaser-badge">Exclusive for Leos</p>
+          <div className="offers-teaser-copy">
+            <h2 className="section-title">
+              Elevate Your Leo Club&apos;s Digital Impact!
+            </h2>
+            <p className="offers-teaser-lead">
+              Custom Web &amp; App Solutions by Xfinity Innovations &mdash;
+              Exclusively for Leos.
+            </p>
+            <p className="muted">
+              We know first-hand what it takes to run successful community
+              projects, manage club communications, and keep members engaged.
+              Our digital packages help your club stand out, streamline
+              operations, and showcase your community impact to the world.
+            </p>
+            <Link to="/offers" className="btn btn-fill-pill">
+              See More <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="offers-teaser-art">
+            <img
+              className="offers-teaser-flyer"
+              src="/assets/images/Leos%20Web%20%26%20App.jpg"
+              alt="Leo Club digital packages flyer for website, mobile app, and combined solutions"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section id="services" className="section container text-center">
         <p className="badge">Services</p>

@@ -2686,3 +2686,318 @@ section[id] {
     min-width: 520px;
   }
 }
+
+/* ─── LEO CLUB OFFERS ───────────────────────────────────────────────── */
+.offers-teaser-section {
+  position: relative;
+  overflow: hidden;
+  padding: 66px 0;
+}
+.offers-teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-areas:
+    "badge badge"
+    "art copy";
+  align-items: center;
+  gap: 48px;
+}
+.offers-teaser-badge {
+  grid-area: badge;
+  justify-self: center;
+  margin-bottom: 0;
+}
+.offers-teaser-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.offers-teaser-copy .section-title {
+  max-width: 620px;
+  margin-bottom: 0;
+}
+.offers-teaser-lead {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.08rem;
+}
+.offers-teaser-copy .muted {
+  max-width: 620px;
+}
+.offers-teaser-art {
+  position: relative;
+  grid-area: art;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  border-right: 1px solid rgba(0, 174, 255, 0.32);
+}
+.offers-teaser-flyer {
+  display: block;
+  width: min(100%, 360px);
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.52), 0 0 42px rgba(0, 119, 255, 0.12);
+}
+.offers-page {
+  position: relative;
+}
+.offers-hero {
+  padding: 60px 0 72px;
+}
+.offers-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.offers-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 34px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.offers-back-link:hover {
+  color: #fff;
+}
+.offers-hero .badge {
+  margin-bottom: 18px;
+}
+.offers-title {
+  max-width: 840px;
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
+  font-weight: 850;
+  line-height: 0.98;
+}
+.offers-subtitle {
+  max-width: 680px;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+}
+.offers-intro {
+  max-width: 760px;
+  margin-top: 12px;
+  color: rgba(232, 232, 240, 0.64);
+  line-height: 1.8;
+}
+.offers-packages {
+  padding-top: 68px;
+  padding-bottom: 80px;
+}
+.offers-section-heading {
+  margin-bottom: 28px;
+}
+.offers-section-heading .section-title {
+  margin-bottom: 0;
+}
+.offers-package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+.offers-package {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+}
+.offers-package--featured {
+  border-color: rgba(0, 174, 255, 0.66);
+  background: linear-gradient(155deg, rgba(0, 119, 255, 0.16), rgba(255, 255, 255, 0.02) 62%);
+}
+.offers-package-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.offers-package-number {
+  color: #50c9ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.offers-package-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(0, 174, 255, 0.36);
+  border-radius: 6px;
+  color: #58cbff;
+}
+.offers-package-title {
+  margin-top: 18px;
+  color: #fff;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+.offers-package-intro {
+  min-height: 72px;
+  margin-top: 10px;
+  color: rgba(232, 232, 240, 0.64);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.offers-price {
+  margin: 20px 0;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.offers-price span {
+  color: #50c9ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  vertical-align: 0.38em;
+}
+.offers-feature-list {
+  display: grid;
+  gap: 15px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  list-style: none;
+}
+.offers-feature-list li {
+  display: grid;
+  grid-template-columns: 17px minmax(0, 1fr);
+  gap: 9px;
+  color: rgba(232, 232, 240, 0.7);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+.offers-feature-list svg {
+  margin-top: 2px;
+  color: #50c9ff;
+}
+.offers-feature-list strong {
+  color: #fff;
+  font-weight: 650;
+}
+.offers-package-note {
+  margin-top: auto;
+  padding-top: 10px;
+  color: rgba(232, 232, 240, 0.48);
+  font-size: 0.74rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+.offers-package-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 12px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #78d8ff;
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+.offers-package-cta:hover {
+  color: #fff;
+}
+.offers-contact-section {
+  padding: 54px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(110deg, rgba(0, 119, 255, 0.12), transparent 70%);
+}
+.offers-contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  align-items: center;
+  gap: 40px;
+}
+.offers-contact .section-title {
+  max-width: 700px;
+}
+.offers-contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.offers-contact-actions .btn {
+  max-width: 100%;
+  white-space: normal;
+}
+.offers-email {
+  color: rgba(232, 232, 240, 0.58);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .offers-package-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .offers-package--featured {
+    grid-column: 1 / -1;
+  }
+  .offers-contact {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+@media (max-width: 640px) {
+  .offers-teaser-section {
+    padding: 48px 0;
+  }
+  .offers-teaser {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "badge"
+      "copy"
+      "art";
+    gap: 28px;
+  }
+  .offers-teaser-art {
+    padding-top: 4px;
+    border-top: 1px solid rgba(0, 174, 255, 0.32);
+    border-right: 0;
+  }
+  .offers-teaser-flyer {
+    width: min(100%, 320px);
+  }
+  .offers-hero {
+    padding: 38px 0 48px;
+  }
+  .offers-back-link {
+    margin-bottom: 28px;
+  }
+  .offers-title {
+    font-size: 2.6rem;
+  }
+  .offers-subtitle {
+    font-size: 1.05rem;
+  }
+  .offers-packages {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+  .offers-package-grid {
+    grid-template-columns: 1fr;
+  }
+  .offers-package--featured {
+    grid-column: auto;
+  }
+  .offers-package-intro {
+    min-height: 0;
+  }
+  .offers-contact-section {
+    padding: 42px 0;
+  }
+}
