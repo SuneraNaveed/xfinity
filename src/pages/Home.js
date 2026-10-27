@@ -435,6 +435,11 @@ export default function Home() {
         <div className="port-grid">
           {[
             {
+              img: "screencapture-focelune-2026-10-27.png",
+              label: "Focelune",
+              link: "https://focelune.vercel.app/",
+            },
+            {
               img: "screencapture-hasithri-2026-10-27.png",
               label: "Hasithri ERP",
               link: "https://www.hasithri.com/",
