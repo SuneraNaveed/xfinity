@@ -435,6 +435,11 @@ export default function Home() {
         <div className="port-grid">
           {[
             {
+              img: "screencapture-hasithri-2026-10-27.png",
+              label: "Hasithri ERP",
+              link: "https://www.hasithri.com/",
+            },
+            {
               img: "screencapture-ananda100-lk-about-2026-03-25-12_44_57.png",
               label: "Ananda College",
               link: "https://ananda100.lk/",
