@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -14,6 +14,9 @@ import {
   Facebook,
   Instagram,
   Linkedin,
+  Lock,
+  ArrowUpRight,
+  Sparkles,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import {
@@ -32,6 +35,189 @@ import creative2 from "../assets/images/creative-2.jpeg";
 import creative3 from "../assets/images/creative-3.jpeg";
 import creative4 from "../assets/images/creative-4.jpeg";
 
+const PORTFOLIO_PROJECTS = [
+  {
+    img: "screencapture-focelune-2026-10-27.png",
+    label: "Focelune",
+    category: "Creative & Media",
+    tag: "Visual Experience",
+    url: "focelune.vercel.app",
+    link: "https://focelune.vercel.app/",
+  },
+  {
+    img: "screencapture-hasithri-2026-10-27.png",
+    label: "Hasithri ERP",
+    category: "Enterprise Systems",
+    tag: "Operations System",
+    url: "hasithri.com",
+    link: "https://www.hasithri.com/",
+  },
+  {
+    img: "screencapture-ananda100-lk-about-2026-03-25-12_44_57.png",
+    label: "Ananda College",
+    category: "Web Platforms",
+    tag: "Centenary Portal",
+    url: "ananda100.lk",
+    link: "https://ananda100.lk/",
+  },
+  {
+    img: "screencapture-exploresrilankawithus-2026-03-25-12_43_12.png",
+    label: "Explore Sri Lanka",
+    category: "Web Platforms",
+    tag: "Tourism Discovery",
+    url: "exploresrilankawithus.com",
+    link: "https://www.exploresrilankawithus.com/",
+  },
+  {
+    img: "screencapture-infernation-2026-03-25-12_44_09.png",
+    label: "Infernation",
+    category: "Creative & Media",
+    tag: "Agency & Digital Media",
+    url: "infernation.com",
+    link: "https://www.infernation.com/",
+  },
+  {
+    img: "screencapture-infernite-2026-10-28.png",
+    label: "Infernite Industries",
+    category: "Enterprise Systems",
+    tag: "Holding Ecosystem",
+    url: "infernite.vercel.app",
+    link: "https://infernite.vercel.app/",
+  },
+];
+
+const PORTFOLIO_CATEGORIES = [
+  "All Works",
+  "Web Platforms",
+  "Enterprise Systems",
+  "Creative & Media",
+];
+
+function PortfolioCard({ project, index }) {
+  const cardRef = useRef(null);
+  const [coords, setCoords] = useState({
+    rotateX: 0,
+    rotateY: 0,
+    spotlightX: 50,
+    spotlightY: 50,
+    isHovered: false,
+  });
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -6.5;
+    const rotateY = ((x - centerX) / centerX) * 6.5;
+
+    setCoords({
+      rotateX: Number(rotateX.toFixed(2)),
+      rotateY: Number(rotateY.toFixed(2)),
+      spotlightX: Number(((x / rect.width) * 100).toFixed(1)),
+      spotlightY: Number(((y / rect.height) * 100).toFixed(1)),
+      isHovered: true,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setCoords({
+      rotateX: 0,
+      rotateY: 0,
+      spotlightX: 50,
+      spotlightY: 50,
+      isHovered: false,
+    });
+  };
+
+  return (
+    <div
+      className="port-card-wrapper"
+      style={{
+        animationDelay: `${index * 75}ms`,
+      }}
+    >
+      <a
+        ref={cardRef}
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`port-card port-card--image ${coords.isHovered ? "is-hovered" : ""}`}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transform: coords.isHovered
+            ? `perspective(1000px) rotateX(${coords.rotateX}deg) rotateY(${coords.rotateY}deg) translateY(-8px) scale3d(1.02, 1.02, 1.02)`
+            : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale3d(1, 1, 1)",
+          transition: coords.isHovered
+            ? "transform 0.12s ease-out, box-shadow 0.25s ease, border-color 0.25s ease"
+            : "transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.4s ease",
+          textDecoration: "none",
+        }}
+      >
+        {/* Dynamic cursor spotlight glow */}
+        <div
+          className="port-spotlight"
+          style={{
+            opacity: coords.isHovered ? 1 : 0,
+            background: `radial-gradient(350px circle at ${coords.spotlightX}% ${coords.spotlightY}%, rgba(0, 195, 255, 0.22) 0%, rgba(182, 107, 255, 0.1) 40%, transparent 75%)`,
+          }}
+        />
+
+        {/* Browser Top Chrome */}
+        <div className="port-bar">
+          <div className="port-dots">
+            <span className="port-dot port-dot--red"></span>
+            <span className="port-dot port-dot--yellow"></span>
+            <span className="port-dot port-dot--green"></span>
+          </div>
+          <div className="port-url-bar">
+            <Lock size={10} className="port-url-lock" />
+            <span className="port-url-text">{project.url}</span>
+          </div>
+          <div className="port-live-badge">
+            <span className="port-live-dot"></span>
+            <span className="port-live-label">LIVE</span>
+          </div>
+        </div>
+
+        {/* Media with smooth scroll/pan preview & shimmer sweep */}
+        <div className="port-media-wrap">
+          <img
+            src={`/assets/images/projects/${project.img}`}
+            alt={project.label}
+            className="port-media"
+            loading="lazy"
+          />
+          <div className="port-shimmer-sweep" />
+        </div>
+
+        {/* Rich Glassmorphic Overlay */}
+        <div className="port-overlay">
+          <div className="port-overlay-inner">
+            <div className="port-overlay-top">
+              <span className="port-pill-badge">{project.tag}</span>
+            </div>
+            <div className="port-overlay-bottom">
+              <div className="port-overlay-info">
+                <h3 className="port-overlay-heading">{project.label}</h3>
+                <p className="port-overlay-subheading">{project.category}</p>
+              </div>
+              <span className="port-visit-btn">
+                <span>View Site</span>
+                <ArrowUpRight size={14} className="port-visit-icon" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  );
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,6 +226,22 @@ export default function Home() {
     type: "",
     vision: "",
   });
+  const [activeCategory, setActiveCategory] = useState("All Works");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleCategoryChange = (cat) => {
+    if (cat === activeCategory) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveCategory(cat);
+      setIsTransitioning(false);
+    }, 150);
+  };
+
+  const displayedProjects =
+    activeCategory === "All Works"
+      ? PORTFOLIO_PROJECTS
+      : PORTFOLIO_PROJECTS.filter((p) => p.category === activeCategory);
 
   const handleChange = (e) =>
     setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
@@ -426,67 +628,58 @@ export default function Home() {
 
       {/* PORTFOLIO */}
       <section id="portfolio" className="section container text-center">
+        {/* Background ambient glowing auras */}
+        <div className="port-bg-aura port-bg-aura--1" />
+        <div className="port-bg-aura port-bg-aura--2" />
+
         <p className="badge">Portfolio</p>
         <h2 className="section-title">
           Check out our latest
           <br />
           completed projects
         </h2>
-        <div className="port-grid">
-          {[
-            {
-              img: "screencapture-focelune-2026-10-27.png",
-              label: "Focelune",
-              link: "https://focelune.vercel.app/",
-            },
-            {
-              img: "screencapture-hasithri-2026-10-27.png",
-              label: "Hasithri ERP",
-              link: "https://www.hasithri.com/",
-            },
-            {
-              img: "screencapture-ananda100-lk-about-2026-03-25-12_44_57.png",
-              label: "Ananda College",
-              link: "https://ananda100.lk/",
-            },
-            {
-              img: "screencapture-exploresrilankawithus-2026-03-25-12_43_12.png",
-              label: "Explore Sri Lanka",
-              link: "https://www.exploresrilankawithus.com/",
-            },
-            {
-              img: "screencapture-infernation-2026-03-25-12_44_09.png",
-              label: "Infernation",
-              link: "https://www.infernation.com/",
-            },
-            {
-              img: "screencapture-infernite-2026-10-28.png",
-              label: "Infernite Industries",
-              link: "https://infernite.vercel.app/",
-            },
-          ].map(({ img, label, link }) => (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="port-card port-card--image"
-              key={img}
-              style={{ textDecoration: "none" }}
-            >
-              <div className="port-bar">
-                <span className="port-dot"></span>
-                <span className="port-dot"></span>
-                <span className="port-dot"></span>
-                <span className="port-url"></span>
-              </div>
-              <img
-                src={`/assets/images/projects/${img}`}
-                alt={label}
-                className="port-media"
-              />
-              <div className="port-overlay">{label}</div>
-            </a>
+
+        {/* Category filter tabs */}
+        <div className="port-filter-tabs">
+          {PORTFOLIO_CATEGORIES.map((cat) => {
+            const count =
+              cat === "All Works"
+                ? PORTFOLIO_PROJECTS.length
+                : PORTFOLIO_PROJECTS.filter((p) => p.category === cat).length;
+            return (
+              <button
+                key={cat}
+                type="button"
+                className={`port-filter-btn ${activeCategory === cat ? "active" : ""}`}
+                onClick={() => handleCategoryChange(cat)}
+              >
+                <span>{cat}</span>
+                <span className="port-filter-count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* 3D tilt interactive grid */}
+        <div className={`port-grid ${isTransitioning ? "is-transitioning" : ""}`}>
+          {displayedProjects.map((project, index) => (
+            <PortfolioCard
+              project={project}
+              index={index}
+              key={project.label}
+            />
           ))}
+        </div>
+
+        {/* Creative footer guarantee/callout */}
+        <div className="port-bottom-cta">
+          <div className="port-cta-pill">
+            <Sparkles size={16} className="port-cta-sparkle" />
+            <span>Ready to elevate your digital presence with a bespoke build?</span>
+            <a href="/#contact" className="port-cta-link">
+              Start Your Project <ArrowRight size={14} />
+            </a>
+          </div>
         </div>
       </section>
 
