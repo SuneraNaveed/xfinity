@@ -459,6 +459,11 @@ export default function Home() {
               label: "Infernation",
               link: "https://www.infernation.com/",
             },
+            {
+              img: "screencapture-infernite-2026-10-28.png",
+              label: "Infernite Industries",
+              link: "https://infernite.vercel.app/",
+            },
           ].map(({ img, label, link }) => (
             <a
               href={link}
