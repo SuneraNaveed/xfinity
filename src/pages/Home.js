@@ -84,6 +84,22 @@ const PORTFOLIO_PROJECTS = [
     url: "infernite.vercel.app",
     link: "https://infernite.vercel.app/",
   },
+  {
+    img: "screencapture-point2sale-2026-11-24.jpg",
+    label: "Point 2 Sale",
+    category: "Enterprise Systems",
+    tag: "Cloud POS Platform",
+    url: "point2sale.com",
+    link: "https://point2sale.com/",
+  },
+  {
+    img: "screencapture-sandesaya-2026-11-24.jpg",
+    label: "Sandesaya",
+    category: "Web Platforms",
+    tag: "Enterprise Social OS",
+    url: "sandesaya.vercel.app",
+    link: "https://sandesaya.vercel.app/",
+  },
 ];
 
 const PORTFOLIO_CATEGORIES = [
